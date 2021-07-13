@@ -1,0 +1,19 @@
+.ToastSecond{
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+}
+.ToastSecondActive{
+    color: red;
+}
+.ToastSecondCity{
+
+}
+.ToastSecondYes{
+
+}
+.ToastSecondYesActive {
+    display: none;
+}

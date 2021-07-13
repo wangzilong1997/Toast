@@ -1,0 +1,17 @@
+.ToastFirst {
+    height: 44px;
+    display: flex;
+    align-items: center;
+}
+.ToastFistPro {
+    border-left: 8px solid transparent;
+    padding-left: 11px;
+}
+
+.ToastFistProInActive {
+    border-left: 8px solid red;
+    
+}
+.ToastFirstActive {
+    background-color: white;
+}
