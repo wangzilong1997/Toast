@@ -5,8 +5,6 @@
     justify-content: space-between;
 }
 .ToastSecondActive{
-    color: red;
-    overflow: hidden;
     transform: translateX(1000px);
     filter: drop-shadow(red -1000px 0);
 }

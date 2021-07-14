@@ -36,17 +36,10 @@ class Toast extends React.Component {
         this.setState({
             SecondId:e-1
         },()=>{
-            //判断重复点击进行操作
-            
-
+            // 判断重复点击进行操作
             // 主要是为了第二次点击进行操作
-            let nulltemp = Object.create(null)
-            nulltemp.first = this.state.FirstId
-            nulltemp.second = this.state.SecondId
-
             let strtemp = `${this.state.FirstId}Toast${this.state.SecondId}`
 
-            console.log('this.state.multiple.push(temp)',nulltemp)
             if(this.state.multiple.indexOf(strtemp) >= 0){
                 console.log('this.state.multiple.indexOf(strtemp)',this.state.multiple.indexOf(strtemp))
                 let arrtemp = this.state.multiple
@@ -59,28 +52,37 @@ class Toast extends React.Component {
                     multiple:arrtemp
                 },()=>{
                     console.log('去除后的数组this.state.multiple',this.state.multiple)
+                    this.DatePrintToBack()
                 })
                 
-            }else {
+            } else {
                 this.setState({
                     multiple:[...this.state.multiple,strtemp]
                 },()=>{
-                    console.log('第二次多重选择的回调函数',this.state.multiple)
+                    console.log('第二次多重选择的回调函数',this.state.multiple)  
+                    this.DatePrintToBack()
                 })
-            }
-
-            
+            }      
             console.log('以数组的形式吐出当前的项',this.state.FirstId,this.state.SecondId,this.state.multiple)
+            
         })
     }
-    ToastFirstClickM = (e) => {
-        console.log('ToastFirstClickM',e)
-    }
-    ToastSecondClickM = (e) => {
-        console.log('ToastSecondClickM',e)
-    }
+    DatePrintToBack = () => {
+        // 世界线收束
+        let resultArr = []
+        let result = Object.create(null)
+        result.id = '';
+        result.city = []
 
-
+        for(let id=0;id<this.state.multiple.length;id++){
+            let rep = /(^\d*)\w{5}(\d*$)/ig
+            let [ , pro, city ] = rep.exec(this.state.multiple[id])
+            console.log('pro,citypro,citypro,city',pro,city)
+            
+            
+        }
+        this.props.callback(this.state.multiple)
+    }
 
     render() {
         let dateList
