@@ -33,6 +33,7 @@ function App() {
     console.log('callback函数拿到ToastResult',e)
   }
 
+  // multiple or single
   return (
     <div>
       <Trast selectMode='multiple' options={date} callback={ToastResult}/>
