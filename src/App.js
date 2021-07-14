@@ -22,6 +22,11 @@ function App() {
       id:4,
       province:'河北',
       city: [{id:1,city:'石家庄'}, {id:2,city:'秦皇岛'}, {id:3,city:'唐山'}, {id:4,city:'廊坊'},{id:5,city:'邢台'} ]
+    },
+    {
+      id:5,
+      province:'北京',
+      city: [{id:1,city:'北京'} ]
     }
   ]
   return (

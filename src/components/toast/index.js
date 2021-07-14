@@ -33,16 +33,54 @@ class Toast extends React.Component {
     }
     ToastSecondClick = (e) => {
         console.log('ToastSecondClick',e)
-        
         this.setState({
             SecondId:e-1
         },()=>{
-            console.log('以数组的形式吐出当前的项',this.state.FirstId,this.state.SecondId)
+            //判断重复点击进行操作
+            
+
+            // 主要是为了第二次点击进行操作
+            let nulltemp = Object.create(null)
+            nulltemp.first = this.state.FirstId
+            nulltemp.second = this.state.SecondId
+
+            let strtemp = `${this.state.FirstId}Toast${this.state.SecondId}`
+
+            console.log('this.state.multiple.push(temp)',nulltemp)
+            if(this.state.multiple.indexOf(strtemp) >= 0){
+                console.log('this.state.multiple.indexOf(strtemp)',this.state.multiple.indexOf(strtemp))
+                let arrtemp = this.state.multiple
+                let itemtemp = ''
+                itemtemp = arrtemp[0]
+                arrtemp[this.state.multiple.indexOf(strtemp)] = itemtemp
+                arrtemp.shift()
+                console.log(arrtemp)
+                this.setState({
+                    multiple:arrtemp
+                },()=>{
+                    console.log('去除后的数组this.state.multiple',this.state.multiple)
+                })
+                
+            }else {
+                this.setState({
+                    multiple:[...this.state.multiple,strtemp]
+                },()=>{
+                    console.log('第二次多重选择的回调函数',this.state.multiple)
+                })
+            }
+
+            
+            console.log('以数组的形式吐出当前的项',this.state.FirstId,this.state.SecondId,this.state.multiple)
         })
-        
-        
-        
     }
+    ToastFirstClickM = (e) => {
+        console.log('ToastFirstClickM',e)
+    }
+    ToastSecondClickM = (e) => {
+        console.log('ToastSecondClickM',e)
+    }
+
+
 
     render() {
         let dateList
@@ -71,7 +109,9 @@ class Toast extends React.Component {
             cityList = this.props.options[this.state.FirstId].city.map((item,index) => {
                 console.log('CityListMap',item)
                 return (
-                    <Second date={item} key={index} getId={this.ToastSecondClick} show={index === this.state.SecondId}></Second>
+                    <Second date={item} key={index} getId={this.ToastSecondClick} show={
+                        this.state.multiple.indexOf(`${this.state.FirstId}Toast${index}`) >= 0
+                    }></Second>
                 )
             })
         }    
