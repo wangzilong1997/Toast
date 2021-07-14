@@ -1,12 +1,14 @@
 .ToastSecond{
-    height: 44px;
     display: flex;
+    width: 80%;
     align-items: center;
     justify-content: space-between;
-    width: 80%;
 }
 .ToastSecondActive{
     color: red;
+    overflow: hidden;
+    transform: translateX(1000px);
+    filter: drop-shadow(red -1000px 0);
 }
 .ToastSecondCity{
 
@@ -16,4 +18,10 @@
 }
 .ToastSecondYesActive {
     display: none;
+}
+.SecondPlaceHolder {
+    display: flex;
+    height: 44px;
+    width: 100%;
+    justify-content: center;
 }

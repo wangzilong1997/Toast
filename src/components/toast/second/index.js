@@ -15,14 +15,16 @@ class Second extends React.Component {
 
     render(){
         return (
-            <div className={!this.props.show ? 
-                'ToastSecond' : 'ToastSecond ToastSecondActive'} onClick={this.SecondClick}>
-                <div className='ToastSecondCity'>
-                    {this.props.date.city}
-                </div>
-                <div className={this.props.show ? 
-                'ToastSecondYes' : 'ToastSecondYes ToastSecondYesActive'} >
-                    ✔️
+            <div className='SecondPlaceHolder' onClick={this.SecondClick}>            
+                <div className={!this.props.show ? 
+                    'ToastSecond' : 'ToastSecond ToastSecondActive'} >
+                    <div className='ToastSecondCity'>
+                        {this.props.date.city}
+                    </div>
+                    <div className={this.props.show ? 
+                    'ToastSecondYes' : 'ToastSecondYes ToastSecondYesActive'} >
+                        ✔️
+                    </div>
                 </div>
             </div>
         )    

@@ -9,6 +9,9 @@ class First extends React.Component {
         console.log('First',props)
     }
 
+    UNSAFE_componentWillMount= () =>{
+        
+    }
     FirstClick = (e) => {
         console.log('FirstClick执行',e)
         // console.log(this.props)
