@@ -1,5 +1,5 @@
 import './App.css';
-import Trast from './components/toast'
+import Toast from './components/toast'
 
 function App() {
   let date = [
@@ -36,7 +36,7 @@ function App() {
   // multiple or single
   return (
     <div>
-      <Trast selectMode='multiple' options={date} callback={ToastResult}/>
+      <Toast selectMode='multiple' options={date} callback={ToastResult}/>
     </div>
   );
 }
