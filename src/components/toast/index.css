@@ -6,6 +6,7 @@
     background-color: rgba(248, 248, 250, 1);
     display: flex;
     flex-flow: row nowrap;
+    overflow: hidden;
 }
 .ToastLeft {
     flex: 1;
